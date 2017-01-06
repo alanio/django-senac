@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>{% block title %}Blog Curso Python e Django{% endblock %}</title>     
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, inital-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static "css/materialize.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <script src=" {% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/materialize.js" %}"></script>
+    <script src="{% static "js/blog.js" %}"></script>   
+    <link rel="stylesheet" href="{% static "css/materialicon.css" %}">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper red accent-4">
+                <div class="container">
+                    <a href="{% url 'core:home' %}" class="brand-logo">Blog</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="{% url 'core:home' %}">Home</a></li>
+                        <li><a href="{% url 'sobre:index' %}">Sobre</a></li>
+                        <li><a href="{% url 'contato:contato' %}">Contato</a></li>                    
+                    </ul>                       
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="{% url 'core:home' %}">Home</a></li>
+                        <li><a href="{% url 'sobre:index' %}">Sobre</a></li>
+                        <li><a href="{% url 'contato:contato' %}">Contato</a></li>                    
+                    </ul>   
+                </div>          
+            </div>      
+        </nav>
+    </div>
+    </br> 
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>      
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div class = "col s12 m4">
+    <h4>Categorias</h4>
+    <ul>
+        {% for categoria in lista_categorias  %}
+            <li><a href="{% url 'posts:lista_posts_categoria' categoria.id %}">{{ categoria.nome }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
